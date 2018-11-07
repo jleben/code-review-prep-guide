@@ -184,7 +184,15 @@ First, make sure we are one the right branch. In our case, this is `remix`. The 
 
 We need to identify the earliest commit that we want to keep. Usually, that will be the commit where our branch branches off of master. In our case, that's the commit with ID `6f8ae23` which is also named `master`, since it is the tip of the `master` branch.
 
-Now, we run the command `git reset 6f8ae23` which in our case is equivalent to `git reset master`. This will revert the current branch `remix` to `master`, but keep all the files unchanged, leaving us with a bunch of uncommitted changes.
+Now, we run the command:
+
+    git reset 6f8ae23
+
+which in our case is equivalent to
+
+    git reset master
+
+This will revert the current branch `remix` to `master`, but keep all the files unchanged, leaving us with a bunch of uncommitted changes.
 
 `git status` tells us we have stripped away 3 commits, leaving `manifesto.txt` with uncommitted changes:
 
@@ -313,7 +321,7 @@ When this is completed, `git log --oneline` should once again show that the loca
 
 There is one more check we can do to make sure that the remote branch still contains the exact same code as before the commit refactoring. Again, we are going to use `git diff` to compare code differences, but this time between the `remix-backup` branch and the remote `origin/remix` branch:
 
-    `git diff remix-backup origin/remix`
+    git diff remix-backup origin/remix
 
 Again, we are expecting this command to show **no** difference at all (unless we intentionally added some changes).
 
