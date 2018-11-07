@@ -224,15 +224,15 @@ Selecting changed lines in the code view and right clicking on them brings up a 
 
 ![Right-click menu on changes](diff-context-menu.png)
 
-Clicking 'Stage Lines For Commit' will put only the selected lines to the git stage (similarily to how `git add` adds entire files to the stage). The file `manifesto.txt` then also appears in the list labeled `Staged Changes` in the GUI. Clicking on the file there shows only the staged changes, which should include the lines we have just staged:
+Clicking 'Stage Lines For Commit' will put only the selected lines to the git stage (similarily to how `git add` adds entire files to the stage). The file `manifesto.txt` then also appears in the list labeled 'Staged Changes' in the GUI. Clicking on the file there shows only the staged changes, which should include the lines we have just staged:
 
 ![Staged changes](staged-diff.png)
 
-If we wish though, we can also stage entire files but selecting the files in the `Unstaged Changes` list and using the main menu option Commmit / Stage To Commit.
+If we wish though, we can also stage entire files by selecting the files in the 'Unstaged Changes' list and using the main menu option Commmit / Stage To Commit.
 
 The nice thing is that the git stage is stored in the filesystem so the staged changes remain if we quit the GUI and then open it again.
 
-When all the changes we want in a commit are staged using the GUI, you can simply commit those changes in the GUI as well. By exploring the unstaged and staged changes, confirm that everything staged should be in the commit and everything that should be in the commit is staged. Enter the message into the `Commit Message` field and click the `Commit` button.
+When all the changes we want in a commit are staged using the GUI, you can simply commit those changes in the GUI as well. By exploring the unstaged and staged changes, confirm that everything staged should be in the commit and everything that should be in the commit is staged. Enter the message into the 'Commit Message' field and click the 'Commit' button.
 
 I do not recommend pushing changes using the GUI though. See below for the recommended process.
 
