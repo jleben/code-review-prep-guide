@@ -232,7 +232,7 @@ If we wish though, we can also stage entire files but selecting the files in the
 
 The nice thing is that the git stage is stored in the filesystem so the staged changes remain if we quit the GUI and then open it again.
 
-When all the changes we want in a commit are staged using the GUI, you can simply commit those changes in the GUI as well. By exploring the unstaged and staged changes, confirm that everything staged should be in the commit and the everything that should be in the commit is staged. Enter the message into the `Commit Message` field and click the `Commit` button.
+When all the changes we want in a commit are staged using the GUI, you can simply commit those changes in the GUI as well. By exploring the unstaged and staged changes, confirm that everything staged should be in the commit and everything that should be in the commit is staged. Enter the message into the `Commit Message` field and click the `Commit` button.
 
 I do not recommend pushing changes using the GUI though. See below for the recommended process.
 
