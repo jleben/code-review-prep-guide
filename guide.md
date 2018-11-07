@@ -140,7 +140,7 @@ Here's an excerpt from the first new commit:
 
 Note that the last commit simply fixes the first two commits. We would like to prepare this set of changes for code review, so we would like to present a set of commits where each commit makes a set of strictly related changes, and all related changes are handled by a single commit. In our case, we would like only two commits: one that replaces 'software' with 'time travel machines' and one that replaces 'Agile' with 'Mind-blowing'.
 
-## Back it up
+## Backing it up
 
 First thing we should do is protect our work in case something goes wrong. The best way to do that is to back it up. We can do that in two ways:
 
@@ -173,11 +173,16 @@ Now `git log --oneline` shows the following. Note that the latest commit also ha
     aab2f21 Replace 'software' with 'time travel machines'
     6f8ae23 (origin/master, master) Original manifesto
 
-## Break commits apart
+## Breaking commits apart
 
 We are going to break apart all the initial commits, leaving us with a set of uncommitted changes, and then create new commits by picking out changes line by line.
 
-First, we need to identify the earliest commit that we want to keep. Usually, that will be the commit where our branch branches off of master. In our case, that's the commit with ID `6f8ae23` which is also named `master`, since it is the tip of the `master` branch.
+First, make sure we are one the right branch. In our case, this is `remix`. The command `git branch` shows the following, which means we are OK (the star indicates the current branch):
+
+      master
+    * remix
+
+We need to identify the earliest commit that we want to keep. Usually, that will be the commit where our branch branches off of master. In our case, that's the commit with ID `6f8ae23` which is also named `master`, since it is the tip of the `master` branch.
 
 Now, we run the command `git reset 6f8ae23` which in our case is equivalent to `git reset master`. This will revert the current branch `remix` to `master`, but keep all the files unchanged, leaving us with a bunch of uncommitted changes.
 
@@ -212,7 +217,7 @@ Now, we run the command `git reset 6f8ae23` which in our case is equivalent to `
 
     etc.
 
-## Re-commit changes
+## Re-committing changes
 
 Now, we want to commit some of the changes into one commit, and other change into another commit. This is quite easy if all changes in a file go into a single commit - we can simply commit the entire file. We usually face the problem though that we want changes in one file to go into separate commits.
 
@@ -247,7 +252,7 @@ Although `git gui` is pretty flexible in that it allows us to pick individual li
 
 Sometimes, this problem can be simplified by breaking the line of code into two lines and putting each line into a different commit. If that can not be done, we need to actually modify the line to contain only one change, commit that change, then modify the line again to introduce the other change and commit it again.
 
-## Check commits before pushing upstream
+## Checking commits before pushing upstream
 
 When all we have re-committed the changes into a clean set of commits ready for review, it's time to push the new commits into the remote repository.
 
@@ -278,7 +283,7 @@ If there are any differences between the current branch `remix` and the remote b
 
 However, if we conciously decided to make some new changes while refactoring the branch, then `git diff origin/remix` is also useful in order to review and confirm those changes.
 
-## Push commits upstream
+## Pushing commits upstream
 
 After confirming that the commit refactoring went OK, we are ready to push the refactored commits online.
 
@@ -311,3 +316,9 @@ There is one more check we can do to make sure that the remote branch still cont
     `git diff remix-backup origin/remix`
 
 Again, we are expecting this command to show **no** difference at all (unless we intentionally added some changes).
+
+## Restoring backup in case of problems
+
+If you have created a backup branch, you can easily restore it with a single command. The command `git reset --hard remix-backup` will make the current branch equal to the branch `remix-backup`. The `--hard` option means that the actual files will also be updated (as opposed to just the commit history), which means any difference from `remix-backup` will be lost. Before doing this, make sure you are on the right branch, for example using `git branch`!
+
+If you don't have a local backup branch, but the original code is still on the remote branch, you can also reset to that branch. In our case: `git reset --hard origin/remix`.
