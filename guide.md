@@ -254,7 +254,7 @@ Sometimes, this problem can be simplified by breaking the line of code into two 
 
 ## Checking commits before pushing upstream
 
-When all we have re-committed the changes into a clean set of commits ready for review, it's time to push the new commits into the remote repository.
+When we have re-committed all the changes into a clean set of commits for review, it's time to push the new commits into the remote repository.
 
 First though, we want to confirm that the branch looks OK. In our case `git log --oneline` shows the following:
 
