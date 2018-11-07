@@ -236,7 +236,7 @@ When all the changes we want in a commit are staged using the GUI, you can simpl
 
 I do not recommend pushing changes using the GUI though. See below for the recommended process.
 
-## Committing changes smaller than a line of code
+### Committing changes smaller than a line of code
 
 Although `git gui` is pretty flexible in that it allows us to pick individual lines that we want to include in a commit, rarely we will have the problem that changes in a single line must be split between different commits. Here is an example in our manifesto - a single line changes `Agile` into `Mind-blowing` as well as `Software` into `Time Travel Machine`:
 
