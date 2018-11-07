@@ -218,15 +218,15 @@ Now, we want to commit some of the changes into one commit, and other change int
 
 We need a tool that allows us to commit individual lines of a file rather than an entire file. Luckily, git comes with its own graphical tool to help us. It is started using the command `git gui`. This command brings up a window like this:
 
-![Git Gui](git-gui.png){width=6in}
+![Git Gui](git-gui.png)
 
 Selecting changed lines in the code view and right clicking on them brings up a menu with the option 'Stage Lines For Commit':
 
-![Right-click menu on changes](diff-context-menu.png){width=6in}
+![Right-click menu on changes](diff-context-menu.png)
 
 Clicking 'Stage Lines For Commit' will put only the selected lines to the git stage (similarily to how `git add` adds entire files to the stage). The file `manifesto.txt` then also appears in the list labeled `Staged Changes` in the GUI. Clicking on the file there shows only the staged changes, which should include the lines we have just staged:
 
-![Staged changes](staged-diff.png){width=6in}
+![Staged changes](staged-diff.png)
 
 If we wish though, we can also stage entire files but selecting the files in the `Unstaged Changes` list and using the main menu option Commmit / Stage To Commit.
 
