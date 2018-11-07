@@ -227,7 +227,7 @@ This will revert the current branch `remix` to `master`, but keep all the files 
 
 ## Re-committing changes
 
-Now, we want to commit some of the changes into one commit, and other change into another commit. This is quite easy if all changes in a file go into a single commit - we can simply commit the entire file. We usually face the problem though that we want changes in one file to go into separate commits.
+Now, we want to commit some of the changes into one commit, and other changes into another commit. This is quite easy if all changes in a file go into a single commit - we can simply commit the entire file. We usually face the problem though that we want changes in one file to go into separate commits.
 
 We need a tool that allows us to commit individual lines of a file rather than an entire file. Luckily, git comes with its own graphical tool to help us. It is started using the command `git gui`. This command brings up a window like this:
 
@@ -237,7 +237,7 @@ Selecting changed lines in the code view and right clicking on them brings up a 
 
 ![Right-click menu on changes](diff-context-menu.png)
 
-Clicking 'Stage Lines For Commit' will put only the selected lines to the git stage (similarily to how `git add` adds entire files to the stage). The file `manifesto.txt` then also appears in the list labeled 'Staged Changes' in the GUI. Clicking on the file there shows only the staged changes, which should include the lines we have just staged:
+Clicking 'Stage Lines For Commit' will put only the selected lines into the git stage (similarily to how `git add` adds entire files to the stage). The file `manifesto.txt` then also appears in the list labeled 'Staged Changes' in the GUI. Clicking on the file there shows only the staged changes, which should include the lines we have just staged:
 
 ![Staged changes](staged-diff.png)
 
