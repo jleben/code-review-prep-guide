@@ -229,7 +229,9 @@ This will revert the current branch `remix` to `master`, but keep all the files 
 
 Now, we want to commit some of the changes into one commit, and other changes into another commit. This is quite easy if all changes in a file go into a single commit - we can simply commit the entire file. We usually face the problem though that we want changes in one file to go into separate commits.
 
-We need a tool that allows us to commit individual lines of a file rather than an entire file. Luckily, git comes with its own graphical tool to help us. It is started using the command `git gui`. This command brings up a window like this:
+We need a tool that allows us to commit individual lines of a file rather than an entire file. Luckily, git comes with its own graphical tool to help us. It is started using the command `git gui`. This tool might not be included in all git installations out-of-the box though. On Debian systems, you can install it using `apt install git-gui`.
+
+The command `git gui` brings up a window like this:
 
 ![Git Gui](git-gui.png)
 
