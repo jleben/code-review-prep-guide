@@ -7,9 +7,9 @@ This is a guide on preparing code changes for review. The goal is to present the
 
 Usually, by the time new code is ready for review, it comes in a very different form. There is a large number of small commits, and a few huge commits. Related changes are sprinkled across multiple commits. Some commits fix work done in previous commits. But all of that is OK; it is impractical to try and create a perfectly neat set of commits during development. However, this should be improved for the purpose of code review.
 
-There are multiple ways to go about refactoring git commits. This guide presents a way that allows most control over what goes into what commit and works even with the most messy initial set of commits. The idea is to completely break apart original commits, leaving us with a set of uncommitted changes, and then create new commits by picking out changes line by line. This may sound like a lot of work and error prone; this guide shows how to use various git tools and safety procedures to make the process safe, smooth and quick.
+There are multiple ways to go about refactoring git commits. This guide presents a way that allows most control over what goes into what commit and works even with the most messy initial set of commits. The idea is to completely break apart original commits, leaving us with a set of uncommitted changes, and then create new commits by picking out changes line by line. This may sound like a lot of work and error prone - however, this guide shows how to use various git tools and safety procedures to make the process safe, smooth and quick.
 
-This guide proposes the following workflow:
+This guide proposes the following workflow which provides **certainty** whether refactoring went right and **safety** in case something goes wrong:
 
 1. [**Branch**](#initial-state) off into a dedicated branch to commit changes during development.
 2. [**Protect**](#protecting-work-before-refactoring) your work in case commit refactoring goes wrong by first pushing the branch to a remote repository as well as creating a local backup of the branch.
