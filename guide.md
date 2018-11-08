@@ -9,6 +9,16 @@ Usually, by the time new code is ready for review, it comes in a very different 
 
 There are multiple ways to go about refactoring git commits. This guide presents a way that allows most control over what goes into what commit and works even with the most messy initial set of commits. The idea is to completely break apart original commits, leaving us with a set of uncommitted changes, and then create new commits by picking out changes line by line. This may sound like a lot of work and error prone; this guide shows how to use various git tools and safety procedures to make the process safe, smooth and quick.
 
+This guide proposes the following workflow:
+
+1. [**Branch**](#initial-state) off into a dedicated branch to commit changes during development.
+2. [**Protect**](#protecting-work-before-refactoring) your work in case commit refactoring goes wrong by first pushing the branch to a remote repository as well as creating a local backup of the branch.
+3. [**Unwind**](#unwinding-commit-history) branch history to the point before the first commit to be reviewed, while keeping uncommitted changes in files.
+4. [**Re-commit**](#re-committing-changes) changes using a graphical tool that allows you to pick individual lines of code for each commit.
+5. [**Verify**](#verifying-new-commits) that the code in the refactored branch exactly matches the backups created in the first step.
+6. [**Push**](#pushing-commits-upstream) the new commits into the remote repository and **verify** that the code in the remote repository exactly matches the local backup.
+7. [**Restore**](#restoring-backup-in-case-of-problems) original commits from backups in case something went wrong.
+
 ## Initial state
 
 Suppose we have a repository that contains the [Agile Manifesto](http://agilemanifesto.org/) in a simple text file `manifesto.txt`.
@@ -140,7 +150,7 @@ Here's an excerpt from the first new commit:
 
 Note that the last commit simply fixes the first two commits. We would like to prepare this set of changes for code review, so we would like to present a set of commits where each commit makes a set of strictly related changes, and all related changes are handled by a single commit. In our case, we would like only two commits: one that replaces 'software' with 'time travel machines' and one that replaces 'Agile' with 'Mind-blowing'.
 
-## Backing it up
+## Protecting work before refactoring
 
 First thing we should do is protect our work in case something goes wrong. The best way to do that is to back it up. We can do that in two ways:
 
@@ -173,7 +183,7 @@ Now `git log --oneline` shows the following. Note that the latest commit also ha
     aab2f21 Replace 'software' with 'time travel machines'
     6f8ae23 (origin/master, master) Original manifesto
 
-## Breaking commits apart
+## Unwinding commit history
 
 We are going to break apart all the initial commits, leaving us with a set of uncommitted changes, and then create new commits by picking out changes line by line.
 
@@ -262,7 +272,7 @@ Although `git gui` is pretty flexible in that it allows us to pick individual li
 
 Sometimes, this problem can be simplified by breaking the line of code into two lines and putting each line into a different commit. If that can not be done, we need to actually modify the line to contain only one change, commit that change, then modify the line again to introduce the other change and commit it again.
 
-## Checking commits before pushing upstream
+## Verifying new commits
 
 When we have re-committed all the changes into a clean set of commits for review, it's time to push the new commits into the remote repository.
 
